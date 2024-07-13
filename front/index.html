@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <nav>
+        <div class="logo">
+            <img class="img-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Logo-VEA-Supermercados.png" alt="">
+        </div>
+        <div class="buscador">
+            <img src="./assets/searcher_magnifyng_glass_search_locate_find_icon_123813.svg" alt="" class="logo-buscador">
+            <input type="text" class="input-search" placeholder="Buscar producto...">
+        </div>
+        <ul class="opciones-nav">
+            <li class="item-opciones">
+                <img src="./assets/home-button_icon-icons.com_72700.svg" class="logo-nav logo-inicio" alt="">
+                <a href="index.html" style="display: block;">Inicio</a>
+            </li>
+            <li class="item-opciones opcion-categorias">
+                <img src="./assets/tags_categories_icon_145927.svg" class="logo-nav opcion-categorias" alt="">
+                <p class="opcion-categorias">Categorías</p>
+                <ul class="opciones-categorias">
+                    <li class="categoria todos">Todos</li>
+                    <li class="categoria">Bebidas</li>
+                    <li class="categoria">Alimentos</li>
+                </ul>
+            </li>
+            <li class="item-opciones abrir-carrito">
+                <img src="./assets/shoppingcart_80945.svg" class="logo-nav abrir-carrito" alt="">
+                <p class="abrir-carrito">Carrito</p>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="main">
+        <div class="productos">
+        </div>
+        <div class="carrito-layout">
+            <div class="carrito">
+                <div class="container-x">
+                    <button class="cerrar-carrito">X</button>
+                </div>
+                <p class="total-carrito">Aún no has agregado ningún producto...</p>
+                <button class="btn-comprar">Comprar</button>
+                <div id="wallet_container"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
