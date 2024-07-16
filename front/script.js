@@ -84,7 +84,6 @@ function actCarritoByEvent(productos, e) {
             </div>`;
             totalCarrito.insertAdjacentHTML('beforebegin', string);
             renderizarTotal();
-            document.querySelector(".list-products").insertAdjacentHTML("beforeend", string)
             seccionCarrito.classList.add("active");
         };
     });
@@ -97,17 +96,17 @@ d.addEventListener('click', e => {
 
     if (e.target.matches('.sumarstock')) {
         let idProducto = e.target.classList[1].split('-')[1];
-        let conteoProducts = document.querySelectorAll(`.conteostock-${idProducto}`);
-        
-        conteoProducts.forEach(product => {
-            let conteoActual = Number(product.textContent);
-            product.textContent = String(conteoActual += 1);
-        })
+        let product = document.querySelector(`.conteostock-${idProducto}`);
+        let stock;
+
+            let conteoActual = parseInt(product.textContent);
+            stock = String(conteoActual += 1);
+            product.textContent = stock;
+      
     
-        let productsInCarts = document.querySelectorAll(`.productocarrito-${idProducto}`);
-        productsInCarts.forEach(product => {
-            product.dataset.stock = product.textContent;
-        })
+       
+            product.dataset.stock = stock;
+      
         productos.forEach(producto => {
             if (producto.id == idProducto) {
                 configPrecio(producto.precio, "+");
@@ -119,11 +118,15 @@ d.addEventListener('click', e => {
 
     if (e.target.matches('.restarstock')) {
         let idProducto = e.target.classList[1].split('-')[1];
-        let producto = document.querySelector(`.conteostock-${idProducto}`);
-        let conteoActual = Number(producto.textContent);
+        let product = document.querySelector(`.conteostock-${idProducto}`);
+        
+        let conteoActual = parseInt(product.textContent);
+
         if (conteoActual > 1) {
-            producto.textContent = String(conteoActual -= 1);
-            document.querySelector(`.productocarrito-${idProducto}`).dataset.stock = producto.textContent;
+            let stock = (conteoActual -= 1).toString()
+            product.textContent = stock;
+            document.querySelector(`.productocarrito-${idProducto}`).dataset.stock = stock;
+
             productos.forEach(producto => {
                 if (producto.id == idProducto) {
                     configPrecio(producto.precio, "-");
@@ -194,7 +197,7 @@ d.addEventListener('click', e => {
 });
 
 d.querySelector(".input-search").addEventListener("input", (e) => {
-    seccionProductos.innerHTML = ""
+    seccionProductos.innerHTML = "";
     productos.forEach(producto => {
         if (producto.titulo.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
             seccionProductos.insertAdjacentHTML('beforeend', `<div class='item-producto'>

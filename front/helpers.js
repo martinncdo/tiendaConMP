@@ -64,8 +64,17 @@ function activePasarela(section) {
     </form>
     <br> 
     <div id="wallet_container"></div> 
+    <div class="carrito-layout">
+            <div class="carrito">
+                <div class="container-x" style="display:none;">
+                    <button class="cerrar-carrito">X</button>
+                </div>
+                <p class="total-carrito">Aún no has agregado ningún producto...</p>
+                <button class="btn-pasarela" style="display:none;">Realizar compra</button>
+            </div>
+    </div>
     <script src="helpers" type="module"></script>`;
-    document.querySelector(".list-products").style.display = "block";
+    
 }
 
 export {
