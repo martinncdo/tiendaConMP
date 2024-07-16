@@ -253,7 +253,7 @@ nav {
     transition: all .5s ease;
 }
 
-.btn-comprar {
+.btn-pasarela {
     padding: .3rem;
     background-color: red;
     border: none;
@@ -287,7 +287,7 @@ nav {
 .restarstock:hover,
 .borrar-carrito:hover,
 .cerrar-carrito:hover,
-.btn-comprar:hover {
+.btn-pasarela:hover {
     opacity: .5;
 }
 

@@ -19,7 +19,7 @@
         <ul class="opciones-nav">
             <li class="item-opciones">
                 <img src="./assets/home-button_icon-icons.com_72700.svg" class="logo-nav logo-inicio" alt="">
-                <a href="index.html" style="display: block;">Inicio</a>
+                <a onclick="loadProductos()" style="display: block;">Inicio</a>
             </li>
             <li class="item-opciones opcion-categorias">
                 <img src="./assets/tags_categories_icon_145927.svg" class="logo-nav opcion-categorias" alt="">
@@ -40,18 +40,20 @@
     <div class="main">
         <div class="productos">
         </div>
+        <div class="list-products" style="display: none;">
+
+        </div>
         <div class="carrito-layout">
             <div class="carrito">
                 <div class="container-x">
                     <button class="cerrar-carrito">X</button>
                 </div>
                 <p class="total-carrito">Aún no has agregado ningún producto...</p>
-                <button class="btn-comprar">Comprar</button>
-                <div id="wallet_container"></div>
+                <button class="btn-pasarela">Realizar compra</button>
             </div>
         </div>
     </div>
-    
-    <script src="script.js"></script>
+
+    <script src="script.js" type="module"></script>
 </body>
 </html>

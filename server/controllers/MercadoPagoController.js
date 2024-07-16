@@ -2,12 +2,12 @@ import { MercadoPagoConfig, Preference } from 'mercadopago';
 import 'dotenv/config';
 
 const client = new MercadoPagoConfig({ accessToken: process.env.ACCESS_TOKEN });
-console.log(client)
 
 class PaymentController {
-    static createPreference(precio) {
-        const preference = new Preference(client);
-        return preference.create({
+    static async createPreference(precio, querys) {
+      try {
+        const initPreference = new Preference(client)
+        let preference = await initPreference.create({
             body: {
               items: [
                 {
@@ -17,10 +17,14 @@ class PaymentController {
                 }
               ],
               back_urls: {
-                success: "http://localhost:8000"
+                success: "http://localhost:8000/success" + querys
               }
             }
           })
+        return preference;
+      }catch(err) {
+        console.log(err);
+      }
     }
 }
 
